@@ -252,7 +252,7 @@ def download_file(url, file):
         Name of file to download to.
     """
 
-    ssl._create_default_https_context = ssl._create_unverified_context
+    ssl._create_default_https_context = ssl.create_default_context
     url = _sanitize_pathname(url)
     try:
         print('Downloading '+url+' to '+file+'...')
@@ -1062,6 +1062,3 @@ def _patches_to_image(patches,image_shape,patch_size=(16,16)):
             p+=1
 
     return I[:image_shape[0],:image_shape[1]]
-
-
-
